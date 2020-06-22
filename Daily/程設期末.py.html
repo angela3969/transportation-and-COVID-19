@@ -1,0 +1,116 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[21]:
+
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
+from IPython.core.pylabtools import figsize
+import pylab as pl
+plt.xticks(rotation =60)
+Data=pd.read_csv("AirlineAndCase.csv")
+Date=Data["日期"]
+DailyEntry=Data["Entry"]
+DailyExit=Data["Exit"]
+CaseAddNum=Data["cases"]
+
+Airline = plt.gca() 
+Airline.plot(Date,DailyEntry,color="dodgerblue",label="總入境人數")
+Airline.plot(Date,DailyExit,color="orange",label="總出境人數")
+
+Airline.set_title("出入境人數與境外確診數之比較")
+Airline.set_ylabel("出入境人數")
+Airline.set_xlabel("日期")
+plt.rcParams["font.sans-serif"] = ["Arial Unicode MS"] 
+
+ticker_spacing =5
+Airline.xaxis.set_major_locator(ticker.MultipleLocator(ticker_spacing))
+plt.figure(figsize(40,10))
+
+plt.show()
+
+
+# In[20]:
+
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
+from IPython.core.pylabtools import figsize
+plt.xticks(rotation =45)
+DailyData=pd.read_csv("DailyTrain&MRT.csv")
+Date=DailyData["Date"]
+DailyMRT=DailyData["MRT"]
+
+MRT = plt.gca() 
+MRT.plot(Date,DailyMRT,color="darkorange",label="旅客人數")
+
+MRT.set_title("台北捷運每日旅客人數", fontsize=40)
+MRT.set_ylabel("旅客人數", fontsize=30)
+MRT.set_xlabel("日期", fontsize=30)
+plt.rcParams["font.sans-serif"] = ["Arial Unicode MS"] 
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
+plt.legend(labels=["旅客人數"], fontsize=30)
+
+ticker_spacing =5
+MRT.xaxis.set_major_locator(ticker.MultipleLocator(ticker_spacing))
+plt.figure(figsize(40,10))
+
+plt.show()
+
+
+# In[19]:
+
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
+from IPython.core.pylabtools import figsize
+plt.xticks(rotation =45)
+DailyData=pd.read_csv("DailyTrain&MRT.csv")
+Date=DailyData["Date"]
+DailyTRA=DailyData["TRA"]
+
+TRA = plt.gca() 
+TRA.plot(Date,DailyTRA,color="darkorange",label="旅客人數")
+
+TRA.set_title("台灣鐵路每日旅客人數", fontsize=40)
+TRA.set_ylabel("旅客人數", fontsize=30)
+TRA.set_xlabel("日期", fontsize=30)
+plt.rcParams["font.sans-serif"] = ["Arial Unicode MS"] 
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
+plt.legend(labels=["旅客人數"], fontsize=30)
+
+ticker_spacing =5
+TRA.xaxis.set_major_locator(ticker.MultipleLocator(ticker_spacing))
+plt.figure(figsize(40,10))
+plt.show()
+
+
+# In[2]:
+
+
+import pandas as pd
+import seaborn as sns
+import matplotlib as plt
+MRTDecrease = pd.read_csv('MRTDecrease.csv')
+sns.set_palette(sns.color_palette('muted'))
+sns.set_style({"font.sans-serif":["Arial Unicode MS"]})
+sns.barplot(x="連續假期",y="下降率",hue="年份",data=MRTDecrease)
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
